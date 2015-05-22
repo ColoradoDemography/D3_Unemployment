@@ -146,13 +146,10 @@ try {
   d3it(test);
 } catch (e) {
   //variable is undefined.  load javascript file containing value.
-    console.log(e.message);
     for(var i=0;i<directory.length;i=i+1){
       if(directory[i].value===code){
-        console.log("file"+directory[i].file+".js");
         var fname="file"+directory[i].file+".js";
-        $.getScript( "data/"+fname, function( data, textStatus, jqxhr ) {
-          console.log( "Load was performed." );
+        $.getScript( "https://s3-us-west-2.amazonaws.com/blsjson/"+fname, function( data, textStatus, jqxhr ) {
           test = eval(code);
           d3it(test);
         });
@@ -228,8 +225,8 @@ function d3it(county) {
 	rect.enter().append("rect").attr("x", calcx).attr("y", calcy).attr("width", barwidth).attr("height", barheight).attr("fill", fillcolor).attr("value", function(d) {
 		return d.value;
 	}).on("mouseover", function(d) {
-		var xPosition = (parseFloat(d3.select(this).attr("x")) + 20);
-		var yPosition = (parseFloat(d3.select(this).attr("y")) + 60);
+		var xPosition = (parseFloat(d3.select(this).attr("x")) + 310);
+		var yPosition = (parseFloat(d3.select(this).attr("y")) + 50);
 
 		d3.select("#tooltip").style("left", xPosition + "px").style("top", yPosition + "px").select("#dtitle").text(d3.select(this).attr("value") + "%");
 
@@ -260,37 +257,35 @@ function fillcolor(d) {
 	var fillcolor = 'rgb(49, 54, 149)';
 	var unem = parseFloat(d.value);
 
-	if (unem > 0) {
-		fillcolor = 'rgb(49, 54, 149)';
-	}
-	if (unem > 1) {
+
+	if (unem > 2.99) {
 		fillcolor = 'rgb(69, 117, 180)';
 	}
-	if (unem > 2) {
+	if (unem > 3.99) {
 		fillcolor = 'rgb(116, 173, 209)';
 	}
-	if (unem > 3) {
+	if (unem > 4.99) {
 		fillcolor = 'rgb(171, 217, 233)';
 	}
-	if (unem > 4) {
+	if (unem > 5.99) {
 		fillcolor = 'rgb(224, 243, 248)';
 	}
-	if (unem > 5) {
+	if (unem > 6.99) {
 		fillcolor = 'rgb(255, 255, 191)';
 	}
-	if (unem > 6) {
+	if (unem > 7.99) {
 		fillcolor = 'rgb(254, 224, 144)';
 	}
-	if (unem > 7) {
+	if (unem > 8.99) {
 		fillcolor = 'rgb(253, 174, 97)';
 	}
-	if (unem > 8) {
+	if (unem > 9.99) {
 		fillcolor = 'rgb(244, 109, 67)';
 	}
-	if (unem > 9) {
+	if (unem > 10.99) {
 		fillcolor = 'rgb(215, 48, 39)';
 	}
-	if (unem > 10) {
+	if (unem > 11.99) {
 		fillcolor = 'rgb(165, 0, 38)';
 	}
 

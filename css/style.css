@@ -29,9 +29,9 @@
 #title {
 	position: absolute;
 	top: 95px;
-	left: 40px;
+	left: 35px;
 	color: rgb(68,121,170);
-	font-family: Copse, Georgia, serif;
+	font-family: Verdana, serif;
 	font-size: 32px;
 	font-style: normal;
 	font-variant: normal;
@@ -46,7 +46,7 @@
 
 #pselect {
 	position: absolute;
-	top: 175px;
+	top: 185px;
 	left: 30px;
 }
 
@@ -89,7 +89,7 @@
 }
 
 body {
-	font-family: Copse, Georgia, serif;
+	font-family: Verdana, serif;
 	shape-rendering: crispEdges;
 	text-rendering: optimizeLegibility;
 }
@@ -134,3 +134,11 @@ input.rounded:focus {
 font-size: 14px;
 }
 
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, body{
+  font-family: Verdana, serif;
+  
+}
+
+.de{
+  font-size: 12px;
+}
