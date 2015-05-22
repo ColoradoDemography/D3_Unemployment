@@ -1,0 +1,136 @@
+
+#frame{
+  
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 950px;
+  height: 700px;
+  border: 1px solid LightGray;
+  
+}
+#enddiv {
+	position: absolute;
+	top: 650px;
+	left: 50px;
+	font-size: 80%;
+}
+
+#imgpos {
+	position: absolute;
+	top: 315px;
+	left: 30px;
+}
+
+#tags{
+  width: 218px;
+}
+
+#title {
+	position: absolute;
+	top: 95px;
+	left: 40px;
+	color: rgb(68,121,170);
+	font-family: Copse, Georgia, serif;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	outline-color: rgb(143, 2, 6);
+	outline-style: none;
+	outline-width: 0px;
+	text-decoration: none;
+	text-shadow: rgb(252, 249, 238) 0px 1px 0px, rgba(0, 0, 0, 0.14902) 0px 2px 0px;
+}
+
+#pselect {
+	position: absolute;
+	top: 175px;
+	left: 30px;
+}
+
+#svgdiv {
+	position: absolute;
+	top: 30px;
+	left: 290px;
+}
+
+#dtitle {
+	text-align: center;
+	pointer-events: none;
+}
+
+#tooltip {
+	position: absolute;
+	width: auto;
+	height: auto;
+	padding: 8px;
+	background-color: ivory;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+	-moz-box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+	pointer-events: none;
+	z-index: 100;
+}
+
+#tooltip.hidden {
+	display: none;
+}
+
+#tooltip p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+body {
+	font-family: Copse, Georgia, serif;
+	shape-rendering: crispEdges;
+	text-rendering: optimizeLegibility;
+}
+
+rect {
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+p{
+  margin: 2px;
+}
+
+text{
+  	font-family: Verdana, serif;
+  letter-spacing: 0.5px;
+}
+
+
+input.rounded {
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 2px 2px 3px #666;
+  -webkit-box-shadow: 2px 2px 3px #666;
+  box-shadow: 2px 2px 3px #666;
+  font-size: 14px;
+  padding: 4px 7px;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+input.rounded:focus {
+  border-color: #339933;
+}
+
+
+/* workarounds */
+
+.ui-menu {
+font-size: 14px;
+}
+

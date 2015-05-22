@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Unemployment Chart</title>
+
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        
+
+     <script src="http://dola.colorado.gov/gis-cms/sites/default/files/html/js/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="data/directory.js"></script>        
+    <script src="js/chart.js"></script>
+
+
+  </head>
+<body onload="myFunction()">
+	<div id="title"  align="center">Unemployment<br />Timeseries</div>
+
+	<div id="tooltip" class="hidden"><p>
+	<span id="dtitle"></span></p>
+	</div>
+
+  <div id="frame"></div>
+
+<div id="pselect">
+  
+<div class="ui-widget">
+  <br />
+  <p>Search:</p>
+    <input id="tags" class="rounded" placeholder="Colorado"/>
+</div>
+  
+  <!--onchange="d3it(eval(this.value));"-->
+  
+  </div>
+
+	<div id="svgdiv"></div>
+
+<div id="enddiv">
+  <p>Visualization by: <a href="http://www.colorado.gov/cs/Satellite/DOLA-Main/CBON/1251590805419" target="_blank">Colorado State Demography Office</a></p>
+  <p>Data: <a href="http://www.bls.gov/" target="_blank">Bureau of Labor Statistics</a> <a href="http://www.bls.gov/developers/" target="_blank">API</a> - Data not Seasonally Adjusted</p>
+  <p>BLS.gov cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS.gov.</p>
+  <!-- <p><a href="http://dola.colorado.gov/cms-base/sites/dola.colorado.gov.gis-cms/files/projects/UnemplChart2/unempChart2.html" target="_blank">Comparison Mode</a></p> -->
+</div>
+
+<div id="imgpos">
+<img src="img/unempgraph.png" />
+</div>
+	
+</body>
+
+
+
+</html>
+
+
