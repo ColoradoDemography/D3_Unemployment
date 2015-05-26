@@ -12,17 +12,19 @@
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         
 
-     <script src="http://dola.colorado.gov/gis-cms/sites/default/files/html/js/d3.v3.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="data/directory.js"></script>        
+    <script src="https://s3-us-west-2.amazonaws.com/blsjson/directory.js"></script>   
+    <script src="data/initial.js"></script>       
     <script src="js/chart.js"></script>
 
 
   </head>
 <body onload="myFunction()">
+  
 	<div id="title"  align="center">Unemployment<br />Timeseries</div>
-
+  
 	<div id="tooltip" class="hidden"><p>
 	<span id="dtitle"></span></p>
 	</div>
@@ -36,9 +38,7 @@
   <p class="de">Search:</p>
     <input id="tags" class="rounded" placeholder="Colorado"/>
 </div>
-  
-  <!--onchange="d3it(eval(this.value));"-->
-  
+
   </div>
 
 	<div id="svgdiv"></div>
