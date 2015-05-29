@@ -4,7 +4,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 950px;
+  width: 900px;
   height: 700px;
   border: 1px solid LightGray;
   
@@ -12,7 +12,7 @@
 #enddiv {
 	position: absolute;
 	top: 650px;
-	left: 50px;
+	left: 20px;
 	font-size: 80%;
 }
 
@@ -23,16 +23,16 @@
 }
 
 #tags{
-  width: 218px;
+  width: 200px;
 }
 
 #title {
 	position: absolute;
 	top: 95px;
-	left: 35px;
+	left: 25px;
 	color: rgb(68,121,170);
 	font-family: Verdana, serif;
-	font-size: 32px;
+	font-size: 30px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
@@ -53,7 +53,7 @@
 #svgdiv {
 	position: absolute;
 	top: 30px;
-	left: 290px;
+	left: 250px;
 }
 
 #dtitle {
