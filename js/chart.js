@@ -4,70 +4,51 @@ var svg;
 var l;
 var rects;
 
-var topmargin = 75;
+var topmargin = 65;
 var leftmargin = 75;
 
 var w = 640;
-var h = 610;
+var h = 630;
 
 var root = [];
 
 
-
-var yearLabels = [{	label : '1990',	x : '1'}, {	label : '1991',	x : '2'}, {	label : '1992',	x : '3'}, {	label : '1993',	x : '4'}, {	label : '1994',	x : '5'}, {	label : '1995',	x : '6'}, {	label : '1996',	x : '7'}, {	label : '1997',	x : '8'}, {	label : '1998',	x : '9'}, {	label : '1999',	x : '10'}, {	label : '2000',	x : '11'}, {	label : '2001',	x : '12'}, {	label : '2002',	x : '13'}, {	label : '2003',	x : '14'}, {	label : '2004',	x : '15'}, {	label : '2005',	x : '16'}, {	label : '2006',	x : '17'}, {	label : '2007',	x : '18'}, {	label : '2008',	x : '19'}, {	label : '2009',	x : '20'}, {	label : '2010',	x : '21'}, {	label : '2011',	x : '22'}, {	label : '2012',	x : '23'}, {	label : '2013',	x : '24'}, {	label : '2014',	x : '25'}, {	label : '2015',	x : '26'}];
+var yearLabels = [{	label : '1990',	x : '1'}, {	label : '1991',	x : '2'}, {	label : '1992',	x : '3'}, {	label : '1993',	x : '4'}, {	label : '1994',	x : '5'}, {	label : '1995',	x : '6'}, {	label : '1996',	x : '7'}, {	label : '1997',	x : '8'}, {	label : '1998',	x : '9'}, {	label : '1999',	x : '10'}, {	label : '2000',	x : '11'}, {	label : '2001',	x : '12'}, {	label : '2002',	x : '13'}, {	label : '2003',	x : '14'}, {	label : '2004',	x : '15'}, {	label : '2005',	x : '16'}, {	label : '2006',	x : '17'}, {	label : '2007',	x : '18'}, {	label : '2008',	x : '19'}, {	label : '2009',	x : '20'}, {	label : '2010',	x : '21'}, {	label : '2011',	x : '22'}, {	label : '2012',	x : '23'}, {	label : '2013',	x : '24'}, {	label : '2014',	x : '25'}, {	label : '2015',	x : '26'}, {	label : '2016',	x : '27'}];
 
 var monthLabels = [{	label : 'January',	x : '1'}, {	label : 'February',	x : '2'}, {	label : 'March',	x : '3'}, {	label : 'April',	x : '4'}, {	label : 'May',	x : '5'}, {	label : 'June',	x : '6'}, {	label : 'July',	x : '7'}, {	label : 'August',	x : '8'}, {	label : 'September',	x : '9'}, {	label : 'October',	x : '10'}, {	label : 'November',	x : '11'}, {	label : 'December',	x : '12'}, {	label : 'Annual',	x : '14'}];
 
 
-function myFunction() {
-  
 
-  function loadplace(code){
-    var test;
-    
-try {
-     test = eval(code);
-  d3it(test);
-} catch (e) {
-  //variable is undefined.  load javascript file containing value.
-    for(var i=0;i<directory.length;i=i+1){
-      if(directory[i].value===code){
-        var fname="file"+directory[i].file+".js";
-        $.getScript( "https://s3-us-west-2.amazonaws.com/blsjson/"+fname, function( data, textStatus, jqxhr ) {
-          test = eval(code);
-          d3it(test);
-        });
-        
-      }
-    }
+
+fetchJSONFile("https://storage.googleapis.com/bls-data/08_bls.json", startup);
+
+var selectElem = document.getElementById('placeselection');
+
+selectElem.addEventListener('change', function(){
+  d3it(selectElem.value);
+});
+
+/* description is in the name */
+function fetchJSONFile(path, callback) {
+
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+                var data = JSON.parse(httpRequest.responseText);
+                if (callback) callback(data);
+            }
+        }
+    };
+    httpRequest.open('GET', path);
+    httpRequest.send();
 
 }
-    
-    
-      
-  }
-  
-  
-    $("#tags").autocomplete({
-        source: directory,
-      autoFocus: true,
-      delay: 500,
-      minLength: 4,
-        focus: function (event, ui) {
-            event.preventDefault();
-            $("#tags").val(ui.item.label);
-        },
-        select: function (event, ui) {
-            event.preventDefault();
-            //on select
-            $("#tags").val(ui.item.label);
-          
-            loadplace(ui.item.value);
-          
-        }
-    });
-  
 
+function startup(data) {
+  //assign to global
+  root = data;
+  
 	svg = d3.select("#svgdiv").append("svg").attr("width", w).attr("height", h);
 
 	l = svg.append("g");
@@ -86,7 +67,7 @@ try {
 	n.selectAll("text").data(monthLabels).enter().append("text").text(function(d) {
 		return d.label;
 	}).attr("x", function(d) {
-		return ((d.x * barwidth) + topmargin - 23);
+		return ((d.x * barwidth) + topmargin - 15);
 	}).attr("y", function(d) {
 		return (topmargin - 35);
 	}).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "black").attr("text-anchor", "start").attr("transform", function(d) {
@@ -94,23 +75,32 @@ try {
 	});
 
   //initial load colorado
-	d3it(LAUST080000000000003);
+	d3it(document.getElementById('placeselection').value);
 
 }
 
-function d3it(county) {
-
-	root = county;
-
+function d3it(data) {
+  
+  var county;
+  
+for(var i=0; i< root.length; i++){
+  
+  if(root[i].s===data){
+    console.log(data);
+    county=root[i].d;
+  }
+  
+}
+  
 	//select rects
-	var rect = l.selectAll("rect").data(root, key);
+	var rect = l.selectAll("rect").data(county, key);
 
 	//create any new rect (will only run once at startup)
 	rect.enter().append("rect").attr("x", calcx).attr("y", calcy).attr("width", barwidth).attr("height", barheight).attr("fill", fillcolor).attr("value", function(d) {
-		return d.value;
+		return d.v;
 	}).on("mouseover", function(d) {
-		var xPosition = (parseFloat(d3.select(this).attr("x")) + 310);
-		var yPosition = (parseFloat(d3.select(this).attr("y")) + 50);
+		var xPosition = (parseFloat(d3.select(this).attr("x")) + 200);
+		var yPosition = (parseFloat(d3.select(this).attr("y")) + 20);
 
 		d3.select("#tooltip").style("left", xPosition + "px").style("top", yPosition + "px").select("#dtitle").text(d3.select(this).attr("value") + "%");
 
@@ -124,21 +114,20 @@ function d3it(county) {
 	//update all rect
 	rect.transition().duration(500).attr("fill", fillcolor).each("end", function() {
 		d3.select(this).attr("value", function(d) {
-			return d.value;
+			return d.v;
 		});
 	});
 
-	//no exit selection
 
 }
 
 var key = function(d) {
-	return d.key;
+	return d.k;
 };
 
 function fillcolor(d) {
 	var fillcolor = 'rgb(49, 54, 149)';
-	var unem = parseFloat(d.value);
+	var unem = parseFloat(d.v);
 	if (unem > 2.99) {fillcolor = 'rgb(69, 117, 180)';}
 	if (unem > 3.99) {fillcolor = 'rgb(116, 173, 209)';}
 	if (unem > 4.99) {fillcolor = 'rgb(171, 217, 233)';}
@@ -154,7 +143,7 @@ function fillcolor(d) {
 
 function calcx(d) {
 
-	var parsestring = d.key;
+	var parsestring = d.k;
 	var month = parsestring.substring(0, 3);
 
 	var xpos;
@@ -178,7 +167,7 @@ function calcx(d) {
 
 function calcy(d) {
 
-	var parsestring = d.key;
+	var parsestring = d.k;
 	var year = parsestring.substring(3, 7);
 
 	var ypos;
@@ -208,6 +197,7 @@ function calcy(d) {
 	if (year == "2013"){ypos = 460;	};
 	if (year == "2014"){ypos = 480;	};
 	if (year == "2015"){ypos = 500;	};
+	if (year == "2016"){ypos = 520;	};
   
 	return ypos + topmargin;
 

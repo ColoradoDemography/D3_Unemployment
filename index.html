@@ -4,20 +4,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>Unemployment Chart</title>
-
-
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-    
-  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://s3-us-west-2.amazonaws.com/blsjson/directory.js"></script>   
-    <script src="data/initial.js"></script>       
-    <script src="js/chart.js"></script>
+    
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,7 +19,7 @@
   ga('send', 'pageview');
 </script>
   </head>
-<body onload="myFunction()">
+<body>
   
 	<div id="title"  align="center">Unemployment<br />Timeseries</div>
   
@@ -43,8 +33,74 @@
   
 <div class="ui-widget">
   <br />
-  <p class="de">Search:</p>
-    <input id="tags" class="rounded" placeholder="Colorado"/>
+  <select id="placeselection">
+    <option value="LAUST080000000000003" selected>Colorado</option>
+    <option value="LAUCN080010000000003" >Adams</option>
+    <option value="LAUCN080030000000003" >Alamosa</option>
+    <option value="LAUCN080050000000003" >Arapahoe</option>
+    <option value="LAUCN080070000000003" >Archuleta</option>
+    <option value="LAUCN080090000000003" >Baca</option>
+    <option value="LAUCN080110000000003" >Bent</option>
+    <option value="LAUCN080130000000003" >Boulder</option>
+    <option value="LAUCN080140000000003" >Broomfield</option>
+    <option value="LAUCN080150000000003" >Chaffee</option>
+    <option value="LAUCN080170000000003" >Cheyenne</option>
+    <option value="LAUCN080190000000003" >Clear Creek</option>
+    <option value="LAUCN080210000000003" >Conejos</option>
+    <option value="LAUCN080230000000003" >Costilla</option>
+    <option value="LAUCN080250000000003" >Crowley</option>
+    <option value="LAUCN080270000000003" >Custer</option>
+    <option value="LAUCN080290000000003" >Delta</option>
+    <option value="LAUCN080310000000003" >Denver</option>
+    <option value="LAUCN080330000000003" >Dolores</option>
+    <option value="LAUCN080350000000003" >Douglas</option>
+    <option value="LAUCN080370000000003" >Eagle</option>
+    <option value="LAUCN080390000000003" >Elbert</option>
+    <option value="LAUCN080410000000003" >El Paso</option>
+    <option value="LAUCN080430000000003" >Fremont</option>
+    <option value="LAUCN080450000000003" >Garfield</option>
+    <option value="LAUCN080470000000003" >Gilpin</option>
+    <option value="LAUCN080490000000003" >Grand</option>
+    <option value="LAUCN080510000000003" >Gunnison</option>
+    <option value="LAUCN080530000000003" >Hinsdale</option>
+    <option value="LAUCN080550000000003" >Huerfano</option>
+    <option value="LAUCN080570000000003" >Jackson</option>
+    <option value="LAUCN080590000000003" >Jefferson</option>
+    <option value="LAUCN080610000000003" >Kiowa</option>
+    <option value="LAUCN080630000000003" >Kit Carson</option>
+    <option value="LAUCN080650000000003" >Lake</option>
+    <option value="LAUCN080670000000003" >La Plata</option>
+    <option value="LAUCN080690000000003" >Larimer</option>
+    <option value="LAUCN080710000000003" >Las Animas</option>
+    <option value="LAUCN080730000000003" >Lincoln</option>
+    <option value="LAUCN080750000000003" >Logan</option>
+    <option value="LAUCN080770000000003" >Mesa</option>
+    <option value="LAUCN080790000000003" >Mineral</option>
+    <option value="LAUCN080810000000003" >Moffat</option>
+    <option value="LAUCN080830000000003" >Montezuma</option>
+    <option value="LAUCN080850000000003" >Montrose</option>
+    <option value="LAUCN080870000000003" >Morgan</option>
+    <option value="LAUCN080890000000003" >Otero</option>
+    <option value="LAUCN080910000000003" >Ouray</option>
+    <option value="LAUCN080930000000003" >Park</option>
+    <option value="LAUCN080950000000003" >Phillips</option>
+    <option value="LAUCN080970000000003" >Pitkin</option>
+    <option value="LAUCN080990000000003" >Prowers</option>
+    <option value="LAUCN081010000000003" >Pueblo</option>
+    <option value="LAUCN081030000000003" >Rio Blanco</option>
+    <option value="LAUCN081050000000003" >Rio Grande</option>
+    <option value="LAUCN081070000000003" >Routt</option>
+    <option value="LAUCN081090000000003" >Saguache</option>
+    <option value="LAUCN081110000000003" >San Juan</option>
+    <option value="LAUCN081130000000003" >San Miguel</option>
+    <option value="LAUCN081150000000003" >Sedgwick</option>
+    <option value="LAUCN081170000000003" >Summit</option>
+    <option value="LAUCN081190000000003" >Teller</option>
+    <option value="LAUCN081210000000003" >Washington</option>
+    <option value="LAUCN081230000000003" >Weld</option>
+    <option value="LAUCN081250000000003" >Yuma</option>
+    
+  </select>
 </div>
 
   </div>
@@ -62,6 +118,7 @@
 <img src="img/newleg.png" />
 </div>
 	
+    <script src="js/chart.js"></script>
 </body>
 
 
