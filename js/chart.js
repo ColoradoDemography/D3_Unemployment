@@ -20,7 +20,7 @@ var monthLabels = [{	label : 'January',	x : '1'}, {	label : 'February',	x : '2'}
 
 
 
-fetchJSONFile("/data/08_bls.json", startup);
+fetchJSONFile("/D3_Unemployment/data/08_bls.json", startup);
 
 var selectElem = document.getElementById('placeselection');
 
