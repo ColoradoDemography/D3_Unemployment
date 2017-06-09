@@ -8,13 +8,13 @@
   top: 10px;
   left: 10px;
   width: 900px;
-  height: 700px;
+  height: 720px;
   border: 1px solid LightGray;
   
 }
 #enddiv {
 	position: absolute;
-	top: 650px;
+	top: 670px;
 	left: 20px;
 	font-size: 80%;
 }
