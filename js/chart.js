@@ -81,6 +81,8 @@ function startup(data) {
 
 function d3it(data) {
   
+  svg.selectAll("rect").remove()
+  
   var county;
   
 for(var i=0; i< root.length; i++){
@@ -93,7 +95,7 @@ for(var i=0; i< root.length; i++){
 }
   
 	//select rects
-	var rect = l.selectAll("rect").data(county, key);
+	var rect = l.selectAll("rect").data(county, key); //remove old data so state data doesn't persist for most recent month
 
 	//create any new rect (will only run once at startup)
 	rect.enter().append("rect").attr("x", calcx).attr("y", calcy).attr("width", barwidth).attr("height", barheight).attr("fill", fillcolor).attr("value", function(d) {
@@ -112,11 +114,11 @@ for(var i=0; i< root.length; i++){
 	;
 
 	//update all rect
-	rect.transition().duration(500).attr("fill", fillcolor).each("end", function() {
-		d3.select(this).attr("value", function(d) {
-			return d.v;
-		});
-	});
+	// rect.transition().duration(500).attr("fill", fillcolor).each("end", function() {
+	// 	d3.select(this).attr("value", function(d) {
+	// 		return d.v;
+	// 	});
+	// });
 
 
 }
