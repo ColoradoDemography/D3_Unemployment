@@ -8,12 +8,12 @@ var topmargin = 65;
 var leftmargin = 75;
 
 var w = 640;
-var h = 650;
+var h = 670;
 
 var root = [];
 
 
-var yearLabels = [{	label : '1990',	x : '1'}, {	label : '1991',	x : '2'}, {	label : '1992',	x : '3'}, {	label : '1993',	x : '4'}, {	label : '1994',	x : '5'}, {	label : '1995',	x : '6'}, {	label : '1996',	x : '7'}, {	label : '1997',	x : '8'}, {	label : '1998',	x : '9'}, {	label : '1999',	x : '10'}, {	label : '2000',	x : '11'}, {	label : '2001',	x : '12'}, {	label : '2002',	x : '13'}, {	label : '2003',	x : '14'}, {	label : '2004',	x : '15'}, {	label : '2005',	x : '16'}, {	label : '2006',	x : '17'}, {	label : '2007',	x : '18'}, {	label : '2008',	x : '19'}, {	label : '2009',	x : '20'}, {	label : '2010',	x : '21'}, {	label : '2011',	x : '22'}, {	label : '2012',	x : '23'}, {	label : '2013',	x : '24'}, {	label : '2014',	x : '25'}, {	label : '2015',	x : '26'}, {	label : '2016',	x : '27'}, {	label : '2017',	x : '28'}, {	label : '2018',	x : '29'}];
+var yearLabels = [{	label : '1990',	x : '1'}, {	label : '1991',	x : '2'}, {	label : '1992',	x : '3'}, {	label : '1993',	x : '4'}, {	label : '1994',	x : '5'}, {	label : '1995',	x : '6'}, {	label : '1996',	x : '7'}, {	label : '1997',	x : '8'}, {	label : '1998',	x : '9'}, {	label : '1999',	x : '10'}, {	label : '2000',	x : '11'}, {	label : '2001',	x : '12'}, {	label : '2002',	x : '13'}, {	label : '2003',	x : '14'}, {	label : '2004',	x : '15'}, {	label : '2005',	x : '16'}, {	label : '2006',	x : '17'}, {	label : '2007',	x : '18'}, {	label : '2008',	x : '19'}, {	label : '2009',	x : '20'}, {	label : '2010',	x : '21'}, {	label : '2011',	x : '22'}, {	label : '2012',	x : '23'}, {	label : '2013',	x : '24'}, {	label : '2014',	x : '25'}, {	label : '2015',	x : '26'}, {	label : '2016',	x : '27'}, {	label : '2017',	x : '28'}, {	label : '2018',	x : '29'}, {	label : '2019',	x : '30'}];
 
 var monthLabels = [{	label : 'January',	x : '1'}, {	label : 'February',	x : '2'}, {	label : 'March',	x : '3'}, {	label : 'April',	x : '4'}, {	label : 'May',	x : '5'}, {	label : 'June',	x : '6'}, {	label : 'July',	x : '7'}, {	label : 'August',	x : '8'}, {	label : 'September',	x : '9'}, {	label : 'October',	x : '10'}, {	label : 'November',	x : '11'}, {	label : 'December',	x : '12'}, {	label : 'Annual',	x : '14'}];
 
@@ -202,6 +202,7 @@ function calcy(d) {
 	if (year == "2016"){ypos = 520;	};
 	if (year == "2017"){ypos = 540;	};
 	if (year == "2018"){ypos = 560;	};
+	if (year == "2019"){ypos = 580;	};
   
 	return ypos + topmargin;
 
