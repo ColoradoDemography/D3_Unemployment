@@ -8,7 +8,7 @@ var topmargin = 65;
 var leftmargin = 75;
 
 var w = 640;
-var h = 730;
+var h = 750;
 
 var root = [];
 
